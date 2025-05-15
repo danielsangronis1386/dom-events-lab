@@ -20,7 +20,10 @@ numberButtons.forEach(button => {
         console.log('Number clicked:', value)
 
         if (!isTypingSecondValue) {
-            storedValue =+ value
+            storedValue += value
+            displayElement.textContent = storedValue
+        } else {
+            currentInput += value
             displayElement.textContent = currentInput
         }
     })
@@ -29,23 +32,23 @@ operatorButtons.forEach (button => {
     button.addEventListener ('click', function () {
         const value = button.textContent.trim()
         console.log('Operator clicked:', value)
-        if (value === 'c'){
+
+        if (value === 'C') {
             storedValue = ''
             currentInput = ''
-            currentOperator =''
+            currentOperator = ''
             isTypingSecondValue = false
             calcResult = ''
             displayElement.textContent = ''
 
         } else {
-                if (!isTypingSecondValue) {
-                  currentInput = ''
-                  isTypingSecondValue = true;
+                 currentOperator = value  
+                 isTypingSecondValue = true
                 }
-                currentOperator = value;
+                
               
         }
-    })
+    )
 })
 
 equalsButton.addEventListener ('click', function () {
